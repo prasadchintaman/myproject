@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploy
+  labels:
+    app: node
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: node
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+      - name: node
+        image: prasad1993/app.js:v11
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
